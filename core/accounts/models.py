@@ -34,11 +34,13 @@ class ShopUser(AbstractUser):
 
 
 class Address(models.Model):
-    potal_code = models.CharField(max_length=7)
-    house_street = models.CharField(max_length=255)
-    city_village = models.CharField(max_length=50)
+    pin_code = models.CharField(max_length=7)
+    local_address = models.CharField(max_length=255, null=True, blank=True)
+    area_street_sector_village = models.CharField(max_length=255, null=True, blank=True)
     state = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    town_city = models.CharField(max_length=255)
+    Landmark = models.CharField(max_length=100, null=True, blank=True)
+    is_default_address = models.BooleanField(default=False)
 
 
 user = get_user_model()
